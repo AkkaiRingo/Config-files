@@ -26,7 +26,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (flycheck-color-mode-line base16-theme fill-column-indicator paredit rainbow-delimiters company-anaconda helm evil nyan-mode flycheck heroku-theme python-mode)))
+    (flycheck-pos-tip flycheck-color-mode-line base16-theme fill-column-indicator paredit rainbow-delimiters company-anaconda helm evil nyan-mode flycheck heroku-theme python-mode)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -125,9 +125,10 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ; Show flycheck errors on popups
-(eval-after-load 'flycheck
-    '(custom-set-variables
-    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+;(eval-after-load 'flycheck
+;    '(custom-set-variables
+;    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+(setq flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list)
 
 ; Color the mode line based on the flycheck state
 (require 'flycheck-color-mode-line)
