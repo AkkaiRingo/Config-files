@@ -26,7 +26,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (auctex flycheck-pos-tip flycheck-color-mode-line base16-theme fill-column-indicator paredit rainbow-delimiters company-anaconda helm evil nyan-mode flycheck heroku-theme python-mode)))
+    (lua-mode flycheck-pos-tip flycheck-color-mode-line base16-theme fill-column-indicator paredit rainbow-delimiters company-anaconda helm evil nyan-mode flycheck heroku-theme python-mode)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -81,26 +81,9 @@
 ; Automatic bracket insertion by pairs
 (electric-pair-mode 1)
 
-; Show Hex Colors on the color they specify
-(defvar hexcolour-keywords
-   '(("#[[:xdigit:]]\\{6\\}"
-      (0 (put-text-property (match-beginning 0)
-                            (match-end 0)
-			    'face (list :background 
-				        (match-string-no-properties 0)))))))
-
- (defun hexcolour-add-to-font-lock ()
-   (font-lock-add-keywords nil hexcolour-keywords))
-
-(add-hook 'evil-mode-hook 'hexcolour-add-to-font-lock)
-
 ;; -----------------------------------------------------------------------------
 
 ;; MODES
-
-;; EMACS-LISP-MODE
-; paredit for python (parenthesis autocompletion)
-(add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
 
 ;; EVIL-MODE >:)
 (require 'evil)
@@ -115,8 +98,8 @@
 (setq evil-operator-state-cursor '("red" hollow))
 
 ; Vim-like search highlighting
-(require 'evil-search-highlight-persist)
-(global-evil-search-highlight-persist t)
+;; (require 'evil-search-highlight-persist)
+;; (global-evil-search-highlight-persist t)
 
 ; Set the \, + <SPC> for removing the higlights (leader key)
 (setq evil-leader/in-all-states 1)
@@ -176,5 +159,8 @@
   (setq flycheck-checker 'python-flake8)
   (setq flycheck-python-flake8-executable "/usr/local/bin/flake8"))
 (add-hook 'python-mode-hook 'enable-flake8)
+
+;; ; paredit for python (parenthesis autocompletion)
+;; (add-hook 'python-mode-hook #'enable-paredit-mode)
 
 ;;; .emacs ends here
