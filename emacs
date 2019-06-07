@@ -26,7 +26,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (lua-mode flycheck-pos-tip flycheck-color-mode-line base16-theme fill-column-indicator paredit rainbow-delimiters company-anaconda helm evil nyan-mode flycheck heroku-theme python-mode)))
+    (anaconda-mode lua-mode flycheck-pos-tip flycheck-color-mode-line base16-theme fill-column-indicator paredit rainbow-delimiters company-anaconda helm evil nyan-mode flycheck heroku-theme python-mode)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -157,7 +157,7 @@
 ; set flake8 as the default linter
 (defun enable-flake8 ()
   (setq flycheck-checker 'python-flake8)
-  (setq flycheck-python-flake8-executable "/usr/local/bin/flake8"))
+  (setq flycheck-python-flake8-executable "/usr/bin/flake8"))
 (add-hook 'python-mode-hook 'enable-flake8)
 
 ;; ; paredit for python (parenthesis autocompletion)
