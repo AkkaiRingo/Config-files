@@ -1,5 +1,3 @@
-# change file name to config
-# .config/terminator/config
 [global_config]
   always_on_top = True
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
