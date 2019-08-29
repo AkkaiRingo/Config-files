@@ -66,3 +66,9 @@ set showmode
 
 " Python syntaxis
 let g:syntastic_python_checkers=['flake8']
+
+" Arrow-managed tabs
+map <C-t><C-up> :tabr<cr>
+map <C-t><C-down> :tabl<cr>
+map <C-t><C-left> :tabp<cr>
+map <C-t><C-right> :tabn<cr>
