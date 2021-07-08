@@ -2,8 +2,8 @@
 
 ;; REPOSITORIES
 (require 'package)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; -----------------------------------------------------------------------------
@@ -26,7 +26,7 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(package-selected-packages
    (quote
-    (anaconda-mode lua-mode flycheck-pos-tip flycheck-color-mode-line base16-theme fill-column-indicator paredit rainbow-delimiters company-anaconda helm evil nyan-mode flycheck heroku-theme python-mode)))
+    (anaconda-mode lua-mode flycheck-pos-tip flycheck-color-mode-line base16-theme paredit fill-column-indicator rainbow-delimiters company-anaconda helm evil nyan-mode flycheck heroku-theme python-mode)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -35,15 +35,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
 ;; -----------------------------------------------------------------------------
 
 ;; GENERAL CONFIGURATIONS FOR EMACS GNU
 
 ; Set line at 80 characters
 (require 'fill-column-indicator)
-(setq fci-rule-column 79)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(setq fci-rule-column 76)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode -1)))
 (global-fci-mode 1)
 
 ; ido, for auto-completing when searching files and buffers
@@ -98,14 +97,14 @@
 (setq evil-operator-state-cursor '("red" hollow))
 
 ; Vim-like search highlighting
-;; (require 'evil-search-highlight-persist)
-;; (global-evil-search-highlight-persist t)
+(require 'evil-search-highlight-persist)
+(global-evil-search-highlight-persist t)
 
 ; Set the \, + <SPC> for removing the higlights (leader key)
-(setq evil-leader/in-all-states 1)
-(global-evil-leader-mode)
-(evil-leader/set-leader ",")
-(evil-leader/set-key "SPC" 'evil-search-highlight-persist-remove-all)
+; (setq evil-leader/in-all-states 0)
+; (global-evil-leader-mode)
+; (evil-leader/set-leader ",")
+; (evil-leader/set-key "SPC" 'evil-search-highlight-persist-remove-all)
 
 ;; COMPANY MODE
 (require 'company)
