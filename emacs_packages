@@ -1,3 +1,4 @@
 auctex base16-theme company-anaconda anaconda-mode company evil-leader evil evil-search-highlight-persist fill-column-indicator flycheck-color-mode-line flycheck-pos-tip flycheck goto-chg helm helm-core async heroku-theme highlight nyan-mode paredit pkg-info epl popup pos-tip python-mode pythonic f dash rainbow-delimiters s undo-tree
 **flake8 is installed with apt
-**run M-x package-install-selected-packages
+**run M-x package-refresh-contents M-x package-install-selected-packages
+**might need to manually install evil-search-highlight-persist with M-x package-install
